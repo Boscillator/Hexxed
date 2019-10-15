@@ -16,6 +16,7 @@ var source  = "<p>Hexxed</p>"+
     }
 
     $.fn.hexxed = function(settings) {
+        console.log("New hexxed", settings);
         scaffold(this);
     }
 })(jQuery);
