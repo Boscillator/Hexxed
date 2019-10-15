@@ -10,7 +10,9 @@ var source  = "<p>Hexxed</p>"+
 (function($) {
     var scaffold = function(element) {
         $(element).html(source);
-        $(".color-slider").slider();
+        $(".color-slider").slider({
+            max: 255,
+        });
     }
 
     $.fn.hexxed = function(settings) {
