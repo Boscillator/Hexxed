@@ -13,6 +13,14 @@ var source  = "<p>Hexxed</p>"+
         $(".color-slider").slider({
             max: 255,
         });
+        var r = Math.floor((Math.random()*255)+1);
+        var g = Math.floor((Math.random()*255)+1);
+        var b = Math.floor((Math.random()*255)+1);
+        $('#color-square').css({
+            "background-color": "rgb("+r+" "+g+" "+b+")",
+            "width": "100px",
+            "height": "100px"
+        });
     }
 
     $.fn.hexxed = function(settings) {
