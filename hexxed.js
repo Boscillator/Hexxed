@@ -3,8 +3,11 @@ var source  = "<p>Hexxed</p>"+
     "<div id='color-square'></div>" +
     "<div>" +
     "   <div id='r' class='color-slider'></div>" +
+    "   <div id='r_out'>0</div>" +
     "   <div id='g' class='color-slider'></div>" +
+    "   <div id='g_out'>0</div>" +
     "   <div id='b' class='color-slider'></div>" +
+    "   <div id='b_out'>0</div>" +
     "   <button id='check' class=\"ui-button ui-widget ui-corner-all\">Check!</button>" +
     "</div>";
 
@@ -13,6 +16,12 @@ var source  = "<p>Hexxed</p>"+
     var start_time = null;
     var r,g,b;
     var difficulty;
+
+    var onSliderChange = function() {
+        var myId = this.id;
+        console.log(myId);
+        $('#' + myId + '_out').text($(this).slider("option","value"));
+    };
 
     var getColorInSliders = function() {
         return {
@@ -34,6 +43,7 @@ var source  = "<p>Hexxed</p>"+
         $(element).html(source);
         $(".color-slider").slider({
             max: 255,
+            change: onSliderChange
         });
       
         $('#check').click(check);
