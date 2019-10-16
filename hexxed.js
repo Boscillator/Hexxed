@@ -31,9 +31,9 @@ var source  = "<p>Hexxed</p>"+
       
         $('#check').click(check);
 
-        var r = Math.floor((Math.random()*255)+1);
-        var g = Math.floor((Math.random()*255)+1);
-        var b = Math.floor((Math.random()*255)+1);
+        var r = Math.floor(Math.random()*255);
+        var g = Math.floor(Math.random()*255);
+        var b = Math.floor(Math.random()*255);
         $('#color-square').css({
             "background-color": "rgb("+r+" "+g+" "+b+")",
             "width": "100px",
