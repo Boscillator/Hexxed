@@ -9,7 +9,9 @@ var source  = "<p>Hexxed</p>"+
     "   <div id='b' class='color-slider'></div>" +
     "   <div id='b_out'>0</div>" +
     "   <button id='check' class='ui-button ui-widget ui-corner-all'>Check!</button>" +
+    "   <button id='next' class='ui-button ui-widget ui-corner-all'>Next!</button>" +
     "   <div id='score'></div>" +
+    "   <div id='last-score'></div>" +
     "</div>";
 
 (function($) {
@@ -36,11 +38,14 @@ var source  = "<p>Hexxed</p>"+
 
     var check = function() {
         var deltaTime = (new Date()) - start_time;
+        deltaTime /= 1000;
 
         var color = getColorInSliders();
         var score = score_calc([r,g,b],[color.r, color.g, color.b], difficulty, deltaTime);
 
         total_score += score;
+
+        $('#last-score').show().text(score);
         $('#score').text(total_score);
 
         current_turn--;
@@ -49,7 +54,7 @@ var source  = "<p>Hexxed</p>"+
             $('#check').attr('disabled','true');
         }
 
-        reset();
+        goNext();
     };
 
     var scaffold = function(element) {
@@ -60,6 +65,12 @@ var source  = "<p>Hexxed</p>"+
         });
       
         $('#check').click(check);
+        $('#next').click(reset);
+    };
+
+    var goNext = function() {
+        $('#check').hide();
+        $('#next').show()
     };
 
     var reset = function() {
@@ -69,11 +80,17 @@ var source  = "<p>Hexxed</p>"+
         g = Math.floor(Math.random()*255);
         b = Math.floor(Math.random()*255);
 
+        console.log(r,g,b);
+
         $('#color-square').css({
             "background-color": "rgb("+r+" "+g+" "+b+")",
             "width": "100px",
             "height": "100px"
         });
+
+        $('#check').show();
+        $('#next').hide();
+        $('#last-score').hide();
     };
 
 
