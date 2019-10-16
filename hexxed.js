@@ -38,7 +38,6 @@ var source  = "<p>Hexxed</p>"+
 
     var check = function() {
         var deltaTime = (new Date()) - start_time;
-        deltaTime /= 1000;
 
         var color = getColorInSliders();
         var score = score_calc([r,g,b],[color.r, color.g, color.b], difficulty, deltaTime);
