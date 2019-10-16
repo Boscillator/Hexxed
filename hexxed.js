@@ -1,6 +1,6 @@
 
 var source  = "<p>Hexxed</p>"+
-    "<div id='color-square'></div>" +
+    "<div id='color-square'></div>" + "<div id='second-color-square'></div>" +
     "<div>" +
     "   <div id='r' class='color-slider'></div>" +
     "   <div id='r_out'>0</div>" +
@@ -18,6 +18,7 @@ var source  = "<p>Hexxed</p>"+
 
     var start_time = null;
     var r,g,b;
+    var r2,g2,b2;
     var difficulty;
     var current_turn;
     var total_score = 0;
@@ -87,6 +88,12 @@ var source  = "<p>Hexxed</p>"+
             "width": "100px",
             "height": "100px"
         });
+        $('#second-color-square').css({
+            "background-color": "rgb("+0+" "+0+" "+0+")",
+            "width": "100px",
+            "height": "100px"
+        });
+
 
         $('#check').show();
         $('#next').hide();
