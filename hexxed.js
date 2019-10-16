@@ -37,15 +37,15 @@ var source  = "<p>Hexxed</p>"+
         });
       
         $('#check').click(check);
-
     };
 
     var reset = function() {
         start_time = new Date();
 
-        r = Math.floor((Math.random()*255)+1);
-        g = Math.floor((Math.random()*255)+1);
-        b = Math.floor((Math.random()*255)+1);
+        r = Math.floor(Math.random()*255);
+        g = Math.floor(Math.random()*255);
+        b = Math.floor(Math.random()*255);
+
         $('#color-square').css({
             "background-color": "rgb("+r+" "+g+" "+b+")",
             "width": "100px",
