@@ -10,17 +10,24 @@ var source  = "<p>Hexxed</p>"+
 
 (function($) {
 
+    var start_time = null;
+    var r,g,b;
+    var difficulty;
+
     var getColorInSliders = function() {
         return {
             'r': $('#r').slider("option","value"),
             'g': $('#g').slider("option","value"),
             'b': $('#b').slider("option","value")
         }
-    }
+    };
 
     var check = function() {
+        var deltaTime = (new Date()) - start_time;
+
         var color = getColorInSliders();
-        console.log(color);
+        var score = score_calc([r,g,b],[color.r, color.g, color.b], difficulty, deltaTime);
+        console.log(score);
     };
 
     var scaffold = function(element) {
@@ -31,9 +38,14 @@ var source  = "<p>Hexxed</p>"+
       
         $('#check').click(check);
 
-        var r = Math.floor((Math.random()*255)+1);
-        var g = Math.floor((Math.random()*255)+1);
-        var b = Math.floor((Math.random()*255)+1);
+    };
+
+    var reset = function() {
+        start_time = new Date();
+
+        r = Math.floor((Math.random()*255)+1);
+        g = Math.floor((Math.random()*255)+1);
+        b = Math.floor((Math.random()*255)+1);
         $('#color-square').css({
             "background-color": "rgb("+r+" "+g+" "+b+")",
             "width": "100px",
@@ -44,6 +56,8 @@ var source  = "<p>Hexxed</p>"+
 
     $.fn.hexxed = function(settings) {
         console.log("New hexxed", settings);
+        difficulty = settings.difficulty;
         scaffold(this);
+        reset();
     }
 })(jQuery);
