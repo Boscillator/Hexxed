@@ -9,7 +9,7 @@ var source  = "<p>Hexxed</p>"+
     "   <div id='b' class='color-slider'></div>" +
     "   <div id='b_out'>0</div>" +
     "   <button id='check' class='ui-button ui-widget ui-corner-all'>Check!</button>" +
-    "   <div id='scores'></div>" +
+    "   <div id='score'></div>" +
     "</div>";
 
 (function($) {
@@ -18,6 +18,7 @@ var source  = "<p>Hexxed</p>"+
     var r,g,b;
     var difficulty;
     var current_turn;
+    var total_score = 0;
 
     var onSliderChange = function() {
         var myId = this.id;
@@ -38,7 +39,10 @@ var source  = "<p>Hexxed</p>"+
 
         var color = getColorInSliders();
         var score = score_calc([r,g,b],[color.r, color.g, color.b], difficulty, deltaTime);
-        $('#scores').append(score + '<br />')
+
+        total_score += score;
+        $('#score').text(total_score);
+
         current_turn--;
 
         if(current_turn <= 0) {
