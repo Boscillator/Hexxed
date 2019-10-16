@@ -8,7 +8,8 @@ var source  = "<p>Hexxed</p>"+
     "   <div id='g_out'>0</div>" +
     "   <div id='b' class='color-slider'></div>" +
     "   <div id='b_out'>0</div>" +
-    "   <button id='check' class=\"ui-button ui-widget ui-corner-all\">Check!</button>" +
+    "   <button id='check' class='ui-button ui-widget ui-corner-all'>Check!</button>" +
+    "   <div id='scores'></div>" +
     "</div>";
 
 (function($) {
@@ -16,6 +17,7 @@ var source  = "<p>Hexxed</p>"+
     var start_time = null;
     var r,g,b;
     var difficulty;
+    var current_turn;
 
     var onSliderChange = function() {
         var myId = this.id;
@@ -36,7 +38,14 @@ var source  = "<p>Hexxed</p>"+
 
         var color = getColorInSliders();
         var score = score_calc([r,g,b],[color.r, color.g, color.b], difficulty, deltaTime);
-        console.log(score);
+        $('#scores').append(score + '<br />')
+        current_turn--;
+
+        if(current_turn <= 0) {
+            $('#check').attr('disabled','true');
+        }
+
+        reset();
     };
 
     var scaffold = function(element) {
@@ -67,6 +76,7 @@ var source  = "<p>Hexxed</p>"+
     $.fn.hexxed = function(settings) {
         console.log("New hexxed", settings);
         difficulty = settings.difficulty;
+        current_turn = settings.turns;
         scaffold(this);
         reset();
     }
