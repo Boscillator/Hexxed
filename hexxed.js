@@ -42,11 +42,11 @@ var source  = "<p>Hexxed</p>"+
 
         var color = getColorInSliders();
         var score = score_calc([r,g,b],[color.r, color.g, color.b], difficulty, deltaTime);
-
         total_score += score;
+        total_score = Math.max(0, total_score);
 
-        $('#last-score').show().text(score);
-        $('#score').text(total_score);
+        $('#last-score').show().text(score.toFixed(2));
+        $('#score').text(total_score.toFixed(2));
 
         current_turn--;
 
