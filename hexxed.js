@@ -27,6 +27,18 @@ var source  = "<p>Hexxed</p>"+
         var myId = this.id;
         console.log(myId);
         $('#' + myId + '_out').text($(this).slider("option","value"));
+
+        r2 = getColorInSliders().r;
+        g2 = getColorInSliders().g;
+        b2 = getColorInSliders().b;
+
+        console.log(typeof r2);
+
+        $('#second-color-square').css({
+            "background-color": "rgb("+r2+" "+g2+" "+b2+")",
+            "width": "100px",
+            "height": "100px"
+        });
     };
 
     var getColorInSliders = function() {
