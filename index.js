@@ -15,5 +15,8 @@ $(document).ready(function() {
         change: instantiate,
         spin: instantiate
     });
-    instantiate();
+    $('#begin').click(function() {
+        $('#begin').hide();
+        instantiate();
+    })
 });
