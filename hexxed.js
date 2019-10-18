@@ -1,6 +1,9 @@
 
-var source  = "<p>Hexxed</p>"+
-    "<div id='color-square'></div>" + "<div id='second-color-square'></div>" +
+var source  = "<p>Make the colors match, then press check.</p>" +
+    "<div class='color-square' id='color-square'></div>" +
+    "<div class='color-square' id='second-color-square'></div>" +
+    "<div id='score'>0</div>" +
+    "<div id='last-score'>0</div>" +
     "<div>" +
     "   <div id='r' class='color-slider'></div>" +
     "   <div id='r_out'>0</div>" +
@@ -10,8 +13,6 @@ var source  = "<p>Hexxed</p>"+
     "   <div id='b_out'>0</div>" +
     "   <button id='check' class='ui-button ui-widget ui-corner-all'>Check!</button>" +
     "   <button id='next' class='ui-button ui-widget ui-corner-all'>Next!</button>" +
-    "   <div id='score'></div>" +
-    "   <div id='last-score'></div>" +
     "</div>";
 
 (function($) {
@@ -96,7 +97,6 @@ var source  = "<p>Hexxed</p>"+
 
         $('#check').show();
         $('#next').hide();
-        $('#last-score').hide();
     };
 
 
