@@ -8,13 +8,8 @@ function instantiate() {
 }
 
 $(document).ready(function() {
-    $("#difficulty").selectmenu({
-        change: instantiate
-    });
-    $("#turns").spinner({
-        change: instantiate,
-        spin: instantiate
-    });
+    $("#difficulty").selectmenu();
+    $("#turns").spinner();
     $('#begin').click(function() {
         $('#begin').hide();
         instantiate();
