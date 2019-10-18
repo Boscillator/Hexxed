@@ -13,6 +13,7 @@ var source  = "<p>Make the colors match, then press check.</p>" +
     "   <div id='b_out'>0</div>" +
     "   <button id='check' class='ui-button ui-widget ui-corner-all'>Check!</button>" +
     "   <button id='next' class='ui-button ui-widget ui-corner-all'>Next!</button>" +
+    "   <p id='game-over'>Game Over</p>" +
     "</div>";
 
 (function($) {
@@ -65,6 +66,9 @@ var source  = "<p>Make the colors match, then press check.</p>" +
 
         if(current_turn <= 0) {
             $('#check').attr('disabled','true');
+            $('#check').hide();
+            $('#game-over').show();
+            return;
         }
 
         goNext();
@@ -79,6 +83,7 @@ var source  = "<p>Make the colors match, then press check.</p>" +
       
         $('#check').click(check);
         $('#next').click(reset);
+        $('#game-over').hide();
     };
 
     var goNext = function() {
