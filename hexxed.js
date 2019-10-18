@@ -55,8 +55,8 @@ var source  = "<p>Make the colors match, then press check.</p>" +
 
         var color = getColorInSliders();
         var score = score_calc([r,g,b],[color.r, color.g, color.b], difficulty, deltaTime);
+        score = Math.max(0, score);
         total_score += score;
-        total_score = Math.max(0, total_score);
 
         $('#last-score').show().text(score.toFixed(2));
         $('#score').text(total_score.toFixed(2));
