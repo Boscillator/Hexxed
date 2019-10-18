@@ -51,3 +51,36 @@ p{
     margin-bottom: 20px;
 }
 
+#r_out::before {
+	color: red;
+	content: "Red: ";
+}
+#r_out {
+	color: red;
+}
+
+#g_out::before {
+	color: green;
+	content: "Green: ";
+}
+
+#g_out {
+	color: green;
+}
+
+#b_out::before {
+	color: blue;
+	content: "Blue: "
+}
+
+#b_out {
+	color: blue;
+}
+
+#check {
+	margin-top: 20px;
+}
+
+#next {
+	margin-top: 20px;
+}
